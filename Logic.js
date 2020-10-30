@@ -42,18 +42,18 @@ class Logic{
             case 1:
                 this.app.background(155);
                 
-                this.app.rect(0,449,125,50);
-                this.app.rect(125,449,125,50);
-                this.app.rect(250,449,125,50);
-                this.app.rect(375,449,125,50);
-                this.app.text("Agregar",40,480);
-                this.app.text("Quitar",175,480);
-                this.app.text("Agrandar",290,480);
-                this.app.text("Circulos",420,480);
+                this.app.rect(120,449,125,50);
+                this.app.rect(290,449,125,50);
+                this.app.rect(460,449,125,50);
+                this.app.rect(630,449,125,50);
+                this.app.text("Agregar",120,480);
+                this.app.text("Quitar",290,480);
+                this.app.text("Agrandar",460,480);
+                this.app.text("Circulos",630,480);
                 
                 for (let i = 0; i < this.figuras.length; i++) {
                     this.figuras[i].dibujarFigura();
-                    
+                    this.figuras[i].move();
                 }
 
                     break;
