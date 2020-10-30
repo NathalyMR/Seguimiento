@@ -18,7 +18,7 @@ class Logic{
         this.posiciones[8]=610;
         this.posiciones[9]=680;
         this.posiciones[10]=750;
-        this.pos=this.app.int(this.app.random(0,4));
+        this.pos=this.app.int(this.app.random(0,9));
     }
     draw(){
         switch (this.pantalla) {
@@ -73,8 +73,8 @@ class Logic{
                 if (this.app.mouseX >= 178 && this.app.mouseX <= 178+90 && this.app.mouseY >= 475 && this.app.mouseY <= 475+20 && this.contador > 0 && this.contador <= 10) {
                     this.pantalla = 1;
                     for (let i = 0; i < this.contador; i++) {
-                        let pos=this.app.int(this.app.random(0,9));
-                        this.figuras.push (new Cuadrado(this.app,this.posiciones[pos],100,this.contador));
+                        
+                        this.figuras.push (new Cuadrado(this.app,this.posiciones[this.pos],100,this.contador));
                         console.log(this.contador);
                     }
                 }
@@ -84,16 +84,24 @@ class Logic{
                 break;
         
             case 1:
-                if (this.app.mouseX >= 0 && this.app.mouseX <= 125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
+                if (this.app.mouseX >= 120 && this.app.mouseX <= 120+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
                     console.log("agregar");
+                    if (this.figuras.length<=9) {
+                        this.figuras.push (new Cuadrado(this.app,this.posiciones[this.pos],100,this.contador));
+                        
+                    }
                 }
-                if (this.app.mouseX >= 125 && this.app.mouseX <= 125+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
+                if (this.app.mouseX >= 290 && this.app.mouseX <= 290+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
                     console.log("quitar");
+                    if (this.figuras.length>0) {
+                        this.figuras.splice(0,1);
+                        
+                    }
                 }
-                if (this.app.mouseX >= 250 && this.app.mouseX <= 250+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
+                if (this.app.mouseX >= 460 && this.app.mouseX <= 460+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
                     console.log("tamaño");
                 }
-                if (this.app.mouseX >= 375 && this.app.mouseX <= 375+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
+                if (this.app.mouseX >= 630 && this.app.mouseX <= 630+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
                     console.log("circulo");
                 }
                 break;
