@@ -52,7 +52,7 @@ class Logic{
                 this.app.text("Circulos",630,480);
                 
                 for (let i = 0; i < this.figuras.length; i++) {
-                    this.figuras[i].dibujarFigura();
+                    this.figuras[i].dibujarFigura((70*i)+70);
                     this.figuras[i].move();
                 }
 
@@ -74,7 +74,7 @@ class Logic{
                     this.pantalla = 1;
                     for (let i = 0; i < this.contador; i++) {
                         let pos=this.app.int(this.app.random(0,9));
-                        this.figuras.push (new Figura(this.app,this.posiciones[pos],100,this.contador));
+                        this.figuras.push (new Cuadrado(this.app,this.posiciones[pos],100,this.contador));
                         console.log(this.contador);
                     }
                 }
@@ -101,10 +101,18 @@ class Logic{
             
         
     }
-    dibujarFiguras(){
-        for (let i = 0; i < this.contador; i++) {
-           let posx= this.app.random([0], [450]);
-           this.app.rect(posx,10,50,50); 
+    key(){
+        if (this.app.keyCode===78) {
+            this.figuras.sort(function(a,b){
+                return a.getValor()-b.getValor();
+            });
+            
         }
+
+
     }
+       
+
+
+
 }
