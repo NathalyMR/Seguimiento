@@ -6,8 +6,8 @@ constructor(app,x,y,number){
 
 }
 
-dibujarFigura(posX){
-    this.app.rect(posX,this.y,50,50); 
+dibujarFigura(posX,size){
+    this.app.rect(posX,this.y,size,size); 
     this.app.text(this.valor,posX+20,this.y+30)
     }
 

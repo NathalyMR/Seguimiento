@@ -6,6 +6,7 @@ class Logic{
         this.pantalla = 0;
         this.error = false;
         this.figuras = [];
+        this.size=1;
         this.posiciones = [];
         this.posiciones[0]=50;
         this.posiciones[1]=120;
@@ -17,8 +18,8 @@ class Logic{
         this.posiciones[7]=540;
         this.posiciones[8]=610;
         this.posiciones[9]=680;
-        this.posiciones[10]=750;
-        this.pos=this.app.int(this.app.random(0,9));
+        //this.posiciones[10]=750;
+       // this.pos=this.app.int(this.app.random(0,9));
     }
     draw(){
         switch (this.pantalla) {
@@ -32,7 +33,7 @@ class Logic{
                 this.app.text("Continuar",180,493);
                 this.app.text(this.contador,220,468);
                 this.app.text("+",270,467);
-                this.app.text("-",172,465);
+                this.app.text("-",172,465);                
                 this.app.textSize(20);
                 if (this.error) {
                     this.app.text("ERROR",50,50);
@@ -52,7 +53,7 @@ class Logic{
                 this.app.text("Circulos",630,480);
                 
                 for (let i = 0; i < this.figuras.length; i++) {
-                    this.figuras[i].dibujarFigura((70*i)+70);
+                    this.figuras[i].dibujarFigura((70*i)+70,50*this.size);
                     this.figuras[i].move();
                 }
 
@@ -99,11 +100,20 @@ class Logic{
                     }
                 }
                 if (this.app.mouseX >= 460 && this.app.mouseX <= 460+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
-                    console.log("tamaño");
+
+                    this.figuras.forEach(element => {
+                        this.size=2;
+                        console.log(element.size);
+                    });
                 }
                 if (this.app.mouseX >= 630 && this.app.mouseX <= 630+125 && this.app.mouseY >= 449 && this.app.mouseY <= 449+50) {
                     console.log("circulo");
                 }
+
+                
+
+                    
+                
                 break;
         }
             
