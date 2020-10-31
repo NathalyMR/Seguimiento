@@ -1,8 +1,9 @@
 new p5 (function(app){
-    var logic;
-
+    
+    
     app.setup=function(){
         logic = new Logic(app);
+       
 }
 
     app.draw=function(){
@@ -14,5 +15,7 @@ new p5 (function(app){
 
     app.keyPressed=function(){
         logic.key();
+
+
 }
 });
